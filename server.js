@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 const { filterXSS } = require('xss'); // Modern protection
-const { db } = require('./config/firebase'); 
+const db = require('./config/firebase');
 
 dotenv.config();
 const app = express();
