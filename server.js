@@ -4,18 +4,15 @@ const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
-const { filterXSS } = require('xss'); // Modern protection
+const { filterXSS } = require('xss'); 
 const db = require('./config/firebase');
 
 dotenv.config();
 const app = express();
 
 // --- 1. SECURITY MIDDLEWARE ---
-
-// Security Headers
 app.use(helmet({ contentSecurityPolicy: false }));
 
-// Rate Limiting: Prevents spam/DDoS
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, 
     max: 100, 
@@ -23,8 +20,6 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// Modern Sanitization Middleware
-// This cleans user input to prevent script injection attacks
 const sanitizeInput = (req, res, next) => {
     if (req.body) {
         for (let key in req.body) {
@@ -39,14 +34,12 @@ const sanitizeInput = (req, res, next) => {
     next();
 };
 
-// Body Parsers & Safety
 app.use(cors());
 app.use(express.json({ limit: '10kb' })); 
 app.use(express.urlencoded({ extended: false, limit: '10kb' }));
-app.use(sanitizeInput); // Apply the cleaner
+app.use(sanitizeInput); 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -67,14 +60,31 @@ app.get('/shop', async (req, res) => {
     }
 });
 
+// --- ADDED SEARCH ROUTE ---
+app.get('/search', async (req, res) => {
+    const searchTerm = req.query.q ? req.query.q.toLowerCase() : "";
+    try {
+        const snapshot = await db.collection('parts').get();
+        let filteredParts = [];
+        snapshot.forEach(doc => {
+            const part = doc.data();
+            if (part.name.toLowerCase().includes(searchTerm) || part.category.toLowerCase().includes(searchTerm)) {
+                filteredParts.push({ id: doc.id, ...part });
+            }
+        });
+        res.render('shop', { title: `Results for "${req.query.q}"`, parts: filteredParts });
+    } catch (err) {
+        console.error("Search Error:", err);
+        res.status(500).send("Database error during search.");
+    }
+});
+
 app.get('/contact', (req, res) => res.render('contact', { title: 'Contact' }));
 app.get('/cart', (req, res) => res.render('cart', { title: 'Cart' }));
 
-// 404 Handler
 app.use((req, res) => {
     res.status(404).render('home', { title: '404 - Not Found' });
 });
 
-// Server Start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Motus Parts Secured & Running on: http://localhost:${PORT}`));
