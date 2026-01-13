@@ -1,32 +1,28 @@
 const admin = require("firebase-admin");
 
 try {
+  if (!admin.apps.length) {
     let serviceAccount;
 
     if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-        console.log("🔥 Initializing Firebase using Environment Variable...");
-        serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+      // 1. Get the JSON from Render
+      serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+      
+      // 2. CRITICAL FIX: Replace the text "\n" with real line breaks
+      serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
     } else {
-        console.log("💻 Initializing Firebase using local JSON file...");
-        serviceAccount = require("./serviceAccountKey.json");
+      // Local development
+      serviceAccount = require("./serviceAccountKey.json");
     }
 
-    if (!admin.apps.length) {
-        admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount)
-        });
-    }
-
-    console.log("✅ Firebase Admin initialized successfully.");
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+    });
+    console.log("✅ Firebase Connected Successfully");
+  }
 } catch (error) {
-    console.error("❌ Firebase Initialization Error:", error.message);
+  console.error("❌ Firebase Initialization Error:", error.message);
 }
 
 const db = admin.firestore();
-
-// Ensure 'db' is actually defined before exporting
-if (!db) {
-    console.error("❌ Firestore 'db' is undefined!");
-}
-
 module.exports = db;
