@@ -1,0 +1,132 @@
+<%- include('partials/header', {title: 'Home'}) %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<%- include('partials/navbar') %>
+
+<main class="bg-white">
+    <section class="w-full h-[45vh] md:h-[65vh] overflow-hidden bg-slate-900">
+        <div class="swiper mySwiper h-full w-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1486006396113-ad730dff3f28?q=80&w=2100&auto=format&fit=crop" 
+                         class="w-full h-full object-cover" alt="Engine detail">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop" 
+                         class="w-full h-full object-cover" alt="Car performance">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" 
+                         class="w-full h-full object-cover" alt="Luxury car parts">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 bg-slate-900 border-b border-slate-800 shadow-2xl">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 uppercase italic">
+                Motus <span class="text-blue-500">Precision.</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+                High-performance engine components, braking systems, and accessories delivered directly to your garage.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="/shop" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-xl shadow-blue-500/20 text-center uppercase tracking-widest">
+                    Browse Inventory
+                </a>
+                <a href="/contact" class="bg-slate-800 hover:bg-slate-700 text-white px-12 py-5 rounded-xl font-bold text-lg border border-slate-700 transition-all text-center uppercase tracking-widest">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-slate-900 tracking-tight italic uppercase">The Motus <span class="text-blue-600">Standard</span></h2>
+                <p class="text-slate-500 mt-2">Engineered for reliability, built for performance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200/60 hover:border-blue-500 transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">💎</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase">OEM Certified</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Every component is manufacturer-certified, ensuring 100% compatibility and original engine performance.</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200/60 hover:border-blue-500 transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">⚡</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase">Rapid Dispatch</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Our smart logistics systems process orders in record time, getting your machine back on the road faster.</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200/60 hover:border-blue-500 transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">🛠️</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase">Expert Support</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Consult with master technicians who understand your specs perfectly before you finalize your build.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900 uppercase italic">Categories</h2>
+                    <p class="text-slate-500 mt-2">Find exactly what you need by system.</p>
+                </div>
+                <a href="/shop" class="text-blue-600 font-bold hover:underline mt-4 md:mt-0 uppercase text-sm tracking-widest">View All Inventory →</a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <a href="/shop" class="group relative overflow-hidden rounded-3xl bg-slate-50 aspect-square flex items-center justify-center transition-all hover:bg-blue-50 border border-slate-100 shadow-sm hover:shadow-xl">
+                    <div class="text-center">
+                        <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform">⚙️</span>
+                        <h3 class="text-xl font-bold text-slate-800 uppercase italic">Engine</h3>
+                    </div>
+                </a>
+                <a href="/shop" class="group relative overflow-hidden rounded-3xl bg-slate-50 aspect-square flex items-center justify-center transition-all hover:bg-blue-50 border border-slate-100 shadow-sm hover:shadow-xl">
+                    <div class="text-center">
+                        <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform">🛑</span>
+                        <h3 class="text-xl font-bold text-slate-800 uppercase italic">Braking</h3>
+                    </div>
+                </a>
+                <a href="/shop" class="group relative overflow-hidden rounded-3xl bg-slate-50 aspect-square flex items-center justify-center transition-all hover:bg-blue-50 border border-slate-100 shadow-sm hover:shadow-xl">
+                    <div class="text-center">
+                        <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform">💡</span>
+                        <h3 class="text-xl font-bold text-slate-800 uppercase italic">Lighting</h3>
+                    </div>
+                </a>
+                <a href="/shop" class="group relative overflow-hidden rounded-3xl bg-slate-50 aspect-square flex items-center justify-center transition-all hover:bg-blue-50 border border-slate-100 shadow-sm hover:shadow-xl">
+                    <div class="text-center">
+                        <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform">🔋</span>
+                        <h3 class="text-xl font-bold text-slate-800 uppercase italic">Electrical</h3>
+                    </div>
+                </a>
+                </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        effect: "fade", 
+        fadeEffect: { crossFade: true }
+    });
+</script>
+
+<%- include('partials/footer') %>

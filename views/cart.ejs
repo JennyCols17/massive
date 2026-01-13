@@ -1,0 +1,23 @@
+<%- include('partials/header', {title: 'Your Cart'}) %>
+<%- include('partials/navbar') %>
+
+<main class="max-w-7xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Shopping Cart</h1>
+        <p class="text-slate-500 mt-2 italic">Review your selected premium autoparts.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-20 text-center">
+        <div class="inline-flex items-center justify-center w-24 h-24 bg-slate-100 rounded-full mb-6">
+            <span class="text-4xl">🛒</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-800">Your cart is currently empty</h2>
+        <p class="text-slate-500 mb-8 max-w-sm mx-auto">It looks like you haven't added any parts to your order yet. Explore our shop to find what you need.</p>
+        
+        <a href="/shop" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30">
+            Continue Shopping
+        </a>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
