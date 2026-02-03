@@ -53,7 +53,7 @@ app.get('/shop', async (req, res) => {
     try {
         const snapshot = await db.collection('parts').get();
         const parts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        res.render('shop', { title: 'Shop', parts });
+        res.render('Gallery', { title: 'Gallery', parts: parts });
     } catch (err) { 
         console.error("Firebase Error:", err); 
         res.status(500).send("Database error. Please contact support."); 

@@ -1,0 +1,94 @@
+<%- include('partials/header', {title: 'KYB Full Catalog'}) %>
+<%- include('partials/navbar') %>
+
+<main class="max-w-7xl mx-auto px-4 py-12">
+    <div class="mb-10 text-center">
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Motus Parts Full Inventory</h1>
+        <p class="text-slate-500 mt-2">Classified KYB Suspension & Steering Solutions</p>
+    </div>
+
+    <% 
+    const displayCategories = {
+        "Shock Absorbers": [
+            { name: "Skorched4 Lift Shock Absorber 1", img: "Skorched4 Lift Shock Absorber 1.jpg", desc: "Heavy-duty 35mm bore for 50mm lifts with velocity-sensitive valving." },
+            { name: "Skorched4 Lift Shock Absorber 2", img: "Skorched4 Lift Shock Absorber 2.jpg", desc: "Twin-tube design for maximum durability and off-road wheel travel." },
+            { name: "Excel-G Shock Absorber 1", img: "Excel-G Shock Absorber 1.jpg", desc: "Nitrogen gas-charged twin-tube design to restore original handling." },
+            { name: "Excel-G Shock Absorber 2", img: "Excel-G Shock Absorber 2.jpg", desc: "Patented valving reduces aeration for consistent performance." },
+            { name: "Gas A Just Shock Absorber 1", img: "Gas A Just Shock Absorber 1.jpg", desc: "Monotube high-pressure design for instant response and better control." },
+            { name: "Gas A Just Shock Absorber 2", img: "Gas A Just Shock Absorber 2.jpg", desc: "Heavy-duty construction for vehicles requiring high damping forces." },
+            { name: "Lowfer Sports Shock Absorber 1", img: "Lowfer Sports Shock Absorber 1.jpg", desc: "Short-stroke shocks designed specifically for lowering springs." },
+            { name: "Lowfer Sports Shock Absorber 2", img: "Lowfer Sports Shock Absorber 2.jpg", desc: "Maintains ride comfort while improving cornering stability." },
+            { name: "New SR Special Shock Absorber 1", img: "New SR Special Shock Absorber 1.jpg", desc: "Enhanced damping force for a sporty and stable driving feel." },
+            { name: "New SR Special Shock Absorber 2", img: "New SR Special Shock Absorber 2.jpg", desc: "Standard replacement with improved road holding capabilities." },
+            { name: "Extage Adjustale Shock Absorber 1", img: "Extage Adjustale Shock Absorber 1.jpg", desc: "32-level adjustable damping for luxury and performance tuning." },
+            { name: "Premium Shock Absorber 1", img: "Premium Shock Absorber 1.jpg", desc: "Smooth hydraulic ride control for classic comfort." },
+            { name: "Premium Shock Absorber 2", img: "Premium Shock Absorber 2.jpg", desc: "Heavy-duty hydraulic performance for vintage suspension." },
+            { name: "Tena Force Shock Absorber 1", img: "Tena Force Shock Absorber 1.jpg", desc: "Built for light commercial vehicles carrying heavy loads." },
+            { name: "Tena Force Shock Absorber 2", img: "Tena Force Shock Absorber 2.jpg", desc: "Reinforced structure for consistent commercial use." },
+            { name: "AGX Adjustable Shock Absorber 1", img: "AGX Adjustable Shock Absorber 1.jpg", desc: "On-car adjustable damping without lifting the vehicle." },
+            { name: "AGX Adjustable Shock Absorber 2", img: "AGX Adjustable Shock Absorber 2.jpg", desc: "Manual damping adjustment for track or street tuning." }
+        ],
+        "Coil Springs": [
+            { name: "K-Flex Standard Coil Spring 1", img: "K-Flex Standard Coil Spring 1.jpg", desc: "Hot-coiled springs designed for perfect ride height restoration." },
+            { name: "K-Flex Standard Coil Spring 2", img: "K-Flex Standard Coil Spring 2.jpg", desc: "High-tensile steel construction for long-lasting support." },
+            { name: "K-Flex Standard Lift Coil Spring 1", img: "K-Flex Standard Lift Coil Spring 1.jpg", desc: "Raised height springs for extra ground clearance and off-road use." },
+            { name: "K-Flex Standard Lift Coil Spring 2", img: "K-Flex Standard Lift Coil Spring 2.jpg", desc: "Increased load capacity for heavy-duty applications." },
+            { name: "K-Flex Standard Lowering Spring 1", img: "K-Flex Standard Lowering Spring 1.jpg", desc: "Progressive rate springs for improved aesthetics and handling." },
+            { name: "K-Flex Standard Lowering Spring 2", img: "K-Flex Standard Lowering Spring 2.jpg", desc: "Sports-tuned coil for aggressive stance and cornering." }
+        ],
+        "Steering & Suspension": [
+            { name: "Ball joint 1", img: "Ball joint 1.jpg", desc: "Precision-engineered for smooth steering articulation." },
+            { name: "Ball joint 2", img: "Ball joint 2.jpg", desc: "Low-friction design for responsive handling." },
+            { name: "Ball joint family 5", img: "Ball joint family 5.jpg", desc: "Complete kit for specific high-performance chassis." },
+            { name: "Ball joint family 6", img: "Ball joint family 6.jpg", desc: "Heavy-duty multi-link ball joint solution." },
+            { name: "Rack End 1", img: "Rack End 1.jpg", desc: "Durable inner tie rod ends for precise wheel alignment." },
+            { name: "Rack End 2", img: "Rack End 2.jpg", desc: "Forged steel construction for extreme durability." },
+            { name: "Rack end family 4", img: "Rack end family 4.jpg", desc: "Matched inner rod ends for passenger car fleets." },
+            { name: "Rack end family 5", img: "Rack end family 5.jpg", desc: "Commercial grade steering linkage components." },
+            { name: "Rack end family 6", img: "Rack end family 6.jpg", desc: "Reinforced inner rod set for SUV applications." },
+            { name: "Tie Rod End 1", img: "Tie Rod End 1.jpg", desc: "Heavy-duty steering ends to eliminate vibrations." },
+            { name: "Tie Rod End 2", img: "Tie Rod End 2.jpg", desc: "Greasable design for extended service life." },
+            { name: "Tie rod end family 6", img: "Tie rod end family 6.jpg", desc: "Complete outer steering link bundle." },
+            { name: "Steering family 1", img: "Steering family 1.jpg", desc: "Full linkage rebuild kit for front-end stability." },
+            { name: "Steering family 2", img: "Steering family 2.jpg", desc: "All-in-one suspension refresh components." },
+            { name: "Steering family 5", img: "Steering family 5.jpg", desc: "Professional grade steering overhaul kit." },
+            { name: "Steering family 6", img: "Steering family 6.jpg", desc: "Precision components for luxury sedan steering." },
+            { name: "Steering family 7", img: "Steering family 7.jpg", desc: "Rugged off-road steering linkage set." },
+            { name: "Stabilizer Link 1", img: "Stabilizer Link 1.jpg", desc: "Restores sway bar function to reduce body roll." },
+            { name: "Stabilizer Link 2", img: "Stabilizer Link 2.jpg", desc: "Corrosion-resistant coating for all-weather durability." }
+        ],
+        "Kits & Accessories": [
+            { name: "Bump Stop 1", img: "Bump Stop 1.jpg", desc: "Protects the shock from bottoming out on heavy impacts." },
+            { name: "Dust Cover 1", img: "Dust Cover 1.jpg", desc: "Flexible protection against road debris and salt." },
+            { name: "Protection Kit 1", img: "Protection Kit 1.jpg", desc: "Includes dust boots to prevent grit from damaging piston seals." },
+            { name: "Shock Mount 1", img: "Shock Mount 1.jpg", desc: "Reduces road noise and vibration transferred to the cabin." },
+            { name: "Shock Mount 2", img: "Shock Mount 2.jpg", desc: "Enhanced rubber-to-metal bonding for smooth ride control." }
+        ]
+    };
+    %>
+
+    <% for (let category in displayCategories) { %>
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2"><%= category %></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <% displayCategories[category].forEach(item => { %>
+                    <div class="relative group h-[350px] overflow-hidden rounded-2xl shadow-md bg-white border border-slate-100">
+                        <div class="absolute inset-0 flex items-center justify-center p-6">
+                            <img src="/images/<%= item.img %>" alt="<%= item.name %>" class="h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        </div>
+
+                        <div class="absolute inset-0 bg-slate-900/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
+                            <h3 class="text-white text-lg font-bold mb-2"><%= item.name %></h3>
+                            <p class="text-slate-300 text-xs mb-4 px-2"><%= item.desc %></p>
+                            <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition-transform active:scale-95">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+    <% } %>
+</main>
+
+<%- include('partials/footer') %>
