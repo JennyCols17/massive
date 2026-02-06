@@ -49,37 +49,70 @@ app.get('/', (req, res) => res.render('home', { title: 'Home' }));
 
 app.get('/about', (req, res) => res.render('about', { title: 'About Us' }));
 
-app.get('/shop', async (req, res) => {
+app.get('/products', async (req, res) => {
     try {
         const snapshot = await db.collection('parts').get();
         const parts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        res.render('gallery', { title: 'Gallery', parts: parts});
+        res.render('products', { title: 'Products', parts: parts});
     } catch (err) { 
         console.error("Firebase Error:", err); 
         res.status(500).send("Database error. Please contact support."); 
     }
 });
 
-// --- ADDED SEARCH ROUTE ---
+// --- UPDATED SEARCH ROUTE ---
 app.get('/search', async (req, res) => {
     const searchTerm = req.query.q ? req.query.q.toLowerCase() : "";
+    
+    if (!searchTerm) return res.redirect('/products');
+
     try {
         const snapshot = await db.collection('parts').get();
         let filteredParts = [];
+
         snapshot.forEach(doc => {
             const part = doc.data();
-            if (part.name.toLowerCase().includes(searchTerm) || part.category.toLowerCase().includes(searchTerm)) {
+            // Check if name or category matches
+            if ((part.name && part.name.toLowerCase().includes(searchTerm)) || 
+                (part.category && part.category.toLowerCase().includes(searchTerm))) {
                 filteredParts.push({ id: doc.id, ...part });
             }
         });
-        res.render('shop', { title: `Results for "${req.query.q}"`, parts: filteredParts });
+
+        // REDIRECT LOGIC: 
+        // If exactly one item is found, go straight to that product's page
+        if (filteredParts.length === 1) {
+            return res.redirect(`/product/${filteredParts[0].id}`);
+        }
+
+        // Otherwise, show the list of all matches
+        res.render('products', { title: `Results for "${req.query.q}"`, parts: filteredParts });
     } catch (err) {
         console.error("Search Error:", err);
         res.status(500).send("Database error during search.");
     }
 });
 
+// --- ADDED PRODUCT DETAIL ROUTE ---
+app.get('/product/:id', async (req, res) => {
+    try {
+        const doc = await db.collection('parts').doc(req.params.id).get();
+        if (!doc.exists) {
+            return res.status(404).render('home', { title: 'Item Not Found' });
+        }
+        res.render('product-detail', { title: doc.data().name, part: { id: doc.id, ...doc.data() } });
+    } catch (err) {
+        res.status(500).send("Error loading product.");
+    }
+});
+
 app.get('/contact', (req, res) => res.render('contact', { title: 'Contact' }));
+
+// MERGED ONLY: Added these two specific routes for your new links
+app.get('/news', (req, res) => res.render('news', { title: 'Latest News' }));
+app.get('/brands', (req, res) => res.render('brands', { title: 'Featured Brands' }));
+
+// Cart route preserved as per your original code request
 app.get('/cart', (req, res) => res.render('cart', { title: 'Cart' }));
 
 app.use((req, res) => {
@@ -87,4 +120,4 @@ app.use((req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Motus Parts Secured & Running on: http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Massiveparts Inc. Secured & Running on: http://localhost:${PORT}`));

@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="min-h-screen bg-slate-950 pt-10">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="border-l-4 border-blue-500 pl-4 mb-10">
+            <h1 class="text-4xl font-black text-white tracking-tight uppercase italic">
+                LATEST <span class="text-blue-500">NEWS</span>
+            </h1>
+            <p class="text-slate-400 mt-2">Industry updates and announcements from MassiveParts Inc.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500 transition-all group">
+                <div class="h-48 bg-slate-800 flex items-center justify-center">
+                    <span class="text-slate-600 font-bold uppercase tracking-widest">Image Placeholder</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-xs text-blue-500 font-bold mb-3 uppercase tracking-wider">
+                        <span class="h-2 w-2 rounded-full bg-blue-500 mr-2"></span>
+                        New Arrival
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                        New Shipment of Genuine KYB Shock Absorbers
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        We have just received a massive restock of KYB Excel-G series for Japanese and Korean models...
+                    </p>
+                    <a href="#" class="text-white text-sm font-bold border-b-2 border-blue-600 pb-1 hover:text-blue-400 transition-all">Read More</a>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500 transition-all group">
+                <div class="h-48 bg-slate-800 flex items-center justify-center">
+                    <span class="text-slate-600 font-bold uppercase tracking-widest">Image Placeholder</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-xs text-red-500 font-bold mb-3 uppercase tracking-wider">
+                        <span class="h-2 w-2 rounded-full bg-red-500 mr-2"></span>
+                        Event
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                        Celebrating 60 Years of Excellence
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        MassiveParts Inc. is proud to celebrate six decades of serving the automotive industry since 1959...
+                    </p>
+                    <a href="#" class="text-white text-sm font-bold border-b-2 border-blue-600 pb-1 hover:text-blue-400 transition-all">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

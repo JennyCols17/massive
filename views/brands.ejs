@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MassiveParts Inc. | Brands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { overflow-y: scroll; }
+        
+        .brand-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Desktop Hover Effect */
+        @media (min-width: 1024px) {
+            .brand-card:hover .brand-overlay { opacity: 1; }
+            .brand-card:hover img { transform: scale(1.05); }
+        }
+
+        /* Mobile Touch Interaction */
+        @media (max-width: 1023px) {
+            .brand-card:active .brand-overlay { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white"> 
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex h-20 items-center justify-between">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-black text-white tracking-tighter uppercase italic">
+                        MASSIVE<span class="text-blue-500 font-light">PARTSINC.</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex flex-grow justify-center max-w-md mx-8">
+                    <form action="/search" method="GET" class="w-full relative">
+                        <input type="text" name="q" placeholder="Search parts..." class="w-full bg-slate-800 border border-slate-700 text-slate-300 text-sm px-4 py-2 rounded-full focus:outline-none focus:border-blue-500 transition-all" required>
+                        <button type="submit" class="absolute right-3 top-2 text-slate-500 hover:text-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">Home</div></a>
+                    <a href="/about" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">About</div></a>
+                    <a href="/products" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">Products</div></a>
+                    <a href="/brands" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">Brands</div></a> 
+                    <a href="/news" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">News & Events</div></a>  
+                    <a href="/contact" class="group flex items-center"><div class="bg-slate-800 group-hover:bg-blue-600 text-slate-300 group-hover:text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all border border-slate-700">Contact</div></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-black italic uppercase text-slate-900 border-l-4 border-blue-500 pl-4 mb-8">
+            Our <span class="text-blue-500">Brands</span>
+        </h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/seiken.jpg" alt="Seiken" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">SEIKEN</h3>
+                    <p class="text-slate-300 text-sm mb-4">Japanese precision in hydraulic brake and clutch components.</p>
+                    <a href="/search?q=seiken" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/nissin.png" alt="Nissin" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">NISSIN</h3>
+                    <p class="text-slate-300 text-sm mb-4">World-class high-performance braking systems and calipers.</p>
+                    <a href="/search?q=nissin" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/aisin.jpg" alt="Aisin" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">AISIN</h3>
+                    <p class="text-slate-300 text-sm mb-4">Premium engine and drivetrain components from a global leader.</p>
+                    <a href="/search?q=aisin" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/advics.jpg" alt="Advics" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">ADVICS</h3>
+                    <p class="text-slate-300 text-sm mb-4">Ultra-premium brake pads and rotors for superior stopping power.</p>
+                    <a href="/search?q=advics" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/tbk.jpg" alt="Advics" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">TBK</h3>
+                    <p class="text-slate-300 text-sm mb-4">Ultra-premium brake pads and rotors for superior stopping power.</p>
+                    <a href="/search?q=tbk" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/top.jpg" alt="Advics" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">TOP</h3>
+                    <p class="text-slate-300 text-sm mb-4">Ultra-premium brake pads and rotors for superior stopping power.</p>
+                    <a href="/search?q=top" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+            
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/trw.jpg" alt="Advics" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">TRW</h3>
+                    <p class="text-slate-300 text-sm mb-4">Ultra-premium brake pads and rotors for superior stopping power.</p>
+                    <a href="/search?q=trw" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/tsk.jpg" alt="Advics" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">TSK/h3>
+                    <p class="text-slate-300 text-sm mb-4">Ultra-premium brake pads and rotors for superior stopping power.</p>
+                    <a href="/search?q=tsk" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+            <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer">
+                <img src="/images/hansa.jpg" alt="Ansa" class="max-h-32 object-contain p-4 transition-transform duration-300">
+                <div class="brand-overlay absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-white font-bold text-xl mb-2 italic uppercase">ANSA</h3>
+                    <p class="text-slate-300 text-sm mb-4">Quality automotive solutions and specialized part manufacturing.</p>
+                    <a href="/search?q=hansa" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-500">View Products</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
