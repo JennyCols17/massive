@@ -4,23 +4,23 @@
 <%- include('partials/navbar') %>
 
 <main class="bg-white">
-    <section class="w-full h-[30vh] md:h-[40vh] overflow-hidden bg-slate-900">
+    <section class="w-full aspect-video md:max-h-[500px] overflow-hidden bg-slate-900">
         <div class="swiper mySwiper h-full w-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="/images/bg_pic_1.jpg" class="w-full h-full object-contain" alt="Engine detail">
+                    <img src="/images/bg_pic_1.jpg" class="w-full h-full object-fill" alt="Engine detail">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/images/bg_pic_2.jpg" class="w-full h-full object-contain" alt="Car performance">
+                    <img src="/images/bg_pic_2.jpg" class="w-full h-full object-fill" alt="Car performance">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/images/bg_pic_3.jpg" class="w-full h-full object-contain" alt="Luxury car parts">
+                    <img src="/images/bg_pic_3.jpg" class="w-full h-full object-fill" alt="Luxury car parts">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12 px-4 bg-slate-900 border-b border-slate-800">
+    <section class="pt-2 pb-12 px-4 bg-slate-900 border-b border-slate-800">
         <div class="max-w-6xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4 uppercase italic">
                 MASSIVE<span class="text-blue-500">PARTS INC.</span>
@@ -68,37 +68,53 @@
                 <a href="/brands" class="text-blue-600 font-bold hover:underline uppercase text-xs tracking-widest">View All Brands →</a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 
-                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <img src="/images/ring.png" alt="Piston Ring Set" class="w-full h-full object-contain p-8 transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
-                        <h3 class="text-white font-bold text-sm uppercase italic">Piston Ring Set</h3>
-                        <p class="text-slate-400 text-[10px]">Precision engine sealing components.</p>
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/kyb.png" alt="KYB" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">KYB</h3>
+                        <p class="text-slate-400 text-[8px]">World-class shock absorbers.</p>
                     </div>
                 </div>
 
-                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <img src="/images/glowplus.jpg" alt="Glowplus" class="w-full h-full object-contain p-8 transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
-                        <h3 class="text-white font-bold text-sm uppercase italic">GlowPlus</h3>
-                        <p class="text-slate-400 text-[10px]">High-performance ignition and glow plugs.</p>
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/aisin.jpg" alt="Aisin" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">Aisin</h3>
+                        <p class="text-slate-400 text-[8px]">Premium drivetrain and engine parts.</p>
                     </div>
                 </div>
 
-                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <img src="/images/aisin.jpg" alt="Aisin" class="w-full h-full object-contain p-8 transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
-                        <h3 class="text-white font-bold text-sm uppercase italic">Aisin</h3>
-                        <p class="text-slate-400 text-[10px]">Premium drivetrain and engine parts.</p>
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/tbk.jpg" alt="TBK" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">TBK</h3>
+                        <p class="text-slate-400 text-[8px]">Heavy-duty brake lining systems.</p>
                     </div>
                 </div>
 
-                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-64 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <img src="/images/seiken.jpg" alt="Seiken" class="w-full h-full object-contain p-8 transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
-                        <h3 class="text-white font-bold text-sm uppercase italic">Seiken</h3>
-                        <p class="text-slate-400 text-[10px]">Japanese hydraulic brake specialists.</p>
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/seiken.jpg" alt="Seiken" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">Seiken</h3>
+                        <p class="text-slate-400 text-[8px]">Japanese hydraulic brake specialists.</p>
+                    </div>
+                </div>
+
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/ngk.png" alt="NGK" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">NGK</h3>
+                        <p class="text-slate-400 text-[8px]">High-performance spark plugs.</p>
+                    </div>
+                </div>
+
+                <div class="brand-card relative border border-slate-200 rounded-2xl overflow-hidden h-48 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+                    <img src="/images/gmb.png" alt="GMB" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-slate-900/90 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                        <h3 class="text-white font-bold text-[10px] uppercase italic">GMB</h3>
+                        <p class="text-slate-400 text-[8px]">Expert cooling and engine bearings.</p>
                     </div>
                 </div>
 
@@ -111,6 +127,7 @@
 <script>
     var swiper = new Swiper(".mySwiper", {
         loop: true,
+        autoHeight: false, 
         autoplay: {
             delay: 4500,
             disableOnInteraction: false,

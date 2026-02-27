@@ -1,6 +1,18 @@
 <%- include('partials/header', {title: 'Contact Us'}) %>
 <%- include('partials/navbar') %>
 
+<div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden">
+    <div class="bg-white p-10 rounded-3xl shadow-2xl text-center max-w-sm mx-4 transform transition-all border border-slate-100">
+        <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4">Success!</h3>
+        <p class="text-slate-600 leading-relaxed text-lg">
+            Your inquiry has been successfully submitted.
+        </p>
+        <button onclick="closeModal()" class="mt-8 w-full bg-blue-600 text-white font-black py-4 rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 uppercase tracking-widest text-sm">
+            Close
+        </button>
+    </div>
+</div>
+
 <main class="bg-slate-50 min-h-screen py-16 px-4">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -11,49 +23,77 @@
                     <p class="text-slate-500 mt-2">Give us some info so the right technician can get back to you.</p>
                 </div>
 
-                <form action="/contact" method="POST" class="space-y-5">
+                <form id="contactForm" class="space-y-5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">First Name</label>
-                            <input type="text" name="firstName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            <input type="text" name="firstName" id="firstName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Last Name</label>
-                            <input type="text" name="lastName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            <input type="text" name="lastName" id="lastName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:md:grid-cols-2 gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address</label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Phone Number</label>
-                            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            <input type="tel" name="phone" id="phone" placeholder="0900 000 0000" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Part Interest</label>
-                        <select name="interest" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-white">
-                            <option value="engine">Shock Absorbers</option>
-                            <option value="braking">Coil Springs</option>
-                            <option value="electrical">Steering & Suspension</option>
-                            <option value="other">Kit & Accessories</option>
-                        </select>
-                    </div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Brand Interest</label>
+                                <select name="interest" id="interest" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-white">
+                                    <option value="Advics">Advics</option>
+                                    <option value="Aisin">Aisin</option>
+                                    <option value="CTR">CTR</option>
+                                    <option value="FCC">FCC</option>
+                                    <option value="FIC">FIC</option>
+                                    <option value="HKT">HKT</option>
+                                    <option value="Isuzu">Isuzu</option>
+                                    <option value="Koito">Koito</option>
+                                    <option value="KP Gasket">KP Gasket</option>
+                                    <option value="KYB">KYB</option>
+                                    <option value="Kyosan">Kyosan</option>
+                                    <option value="LuK">LuK</option>
+                                    <option value="Mitoyo">Mitoyo</option>
+                                    <option value="Mitsubishi">Mitsubishi</option>
+                                    <option value="Miyaco">Miyaco</option>
+                                    <option value="Musashi">Musashi</option>
+                                    <option value="Nichirin">Nichirin</option>
+                                    <option value="Nissin">Nissin</option>
+                                    <option value="NOK">NOK</option>
+                                    <option value="NPR">NPR</option>
+                                    <option value="OBK">OBK</option>
+                                    <option value="Optibelt">Optibelt</option>
+                                    <option value="Osaka">Osaka</option>
+                                    <option value="Rocky EV">Rocky EV</option>
+                                    <option value="Sankei (555)">Sankei (555)</option>
+                                    <option value="SBK">SBK</option>
+                                    <option value="SECO">SECO</option>
+                                    <option value="Seiken">Seiken</option>
+                                    <option value="Shimahide">Shimahide</option>
+                                    <option value="Tama">Tama</option>
+                                    <option value="Toyo">Toyo</option>
+                                    <option value="YEC">YEC</option>
+                                </select>
+                        </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Message</label>
-                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"></textarea>
+                        <textarea name="message" id="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"></textarea>
                     </div>
 
                     <p class="text-[10px] text-slate-400 leading-tight">
-                        By clicking "Contact Me", you agree to our Privacy Statement. Motus Precision technicians may contact you regarding your technical inquiry.
+                        By clicking "Contact Me", you agree to our Privacy Statement. Massiveparts Inc. representative may contact you regarding your technical inquiry.
                     </p>
 
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02] uppercase tracking-widest text-sm">
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:scale-[1.02] uppercase tracking-widest text-sm">
                         Contact Me
                     </button>
                 </form>
@@ -61,7 +101,7 @@
 
             <div class="lg:pt-12">
                 <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-12">
-                    How would you like to contact <span class="text-blue-600 italic">Motus?</span>
+                    How would you like to contact <span class="text-blue-600 italic">Massiveparts Inc?</span>
                 </h1>
 
                 <div class="space-y-10">
@@ -73,7 +113,7 @@
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-slate-900">Need help now?</h4>
-                            <p class="text-slate-600">Call our technical line: <span class="text-blue-600 font-bold">1-800-MOTUS-PRO</span></p>
+                            <p class="text-slate-600">Call our technical line: <span class="text-blue-600 font-bold">0915 673 7618</span></p>
                         </div>
                     </div>
 
@@ -96,8 +136,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-slate-900">OEM Warranty</h4>
-                            <p class="text-slate-600">All parts come with a 1-year guarantee. <a href="#" class="text-blue-600 hover:underline">Read more.</a></p>
+                            <h4 class="text-lg font-bold text-slate-900">Product Return Quality</h4>
+                            <p class="text-slate-600">All parts come with a warranty. <a href="#" class="text-blue-600 hover:underline">Read more.</a></p>
                         </div>
                     </div>
                 </div>
@@ -106,5 +146,56 @@
         </div>
     </div>
 </main>
+
+<script>
+function showModal() {
+    document.getElementById('successModal').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('successModal').classList.add('hidden');
+}
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    const originalText = btn.innerText;
+    btn.innerText = "SENDING...";
+    btn.disabled = true;
+
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        interest: document.getElementById('interest').value,
+        message: document.getElementById('message').value
+    };
+
+    try {
+        const response = await fetch("https://formspree.io/f/mojnjoko", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            showModal();
+            document.getElementById('contactForm').reset();
+        } else {
+            alert("Oops! There was a problem sending your message. Please check your connection.");
+        }
+    } catch (error) {
+        alert("An error occurred. Please try again later.");
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+});
+</script>
 
 <%- include('partials/footer') %>

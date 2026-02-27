@@ -3,8 +3,14 @@
 
 <main class="max-w-7xl mx-auto px-4 py-12">
     <div class="mb-10 text-center">
-        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Massive Parts Inc. Products</h1>
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Massiveparts Inc. Products</h1>
         <p class="text-slate-500 mt-2">Classified KYB Suspension & Steering Solutions</p>
+    </div>
+
+    <div id="no-results-message" style="display: none;" class="text-center py-20 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200 mb-10">
+        <div class="text-6xl mb-4">🔍</div>
+        <h2 class="text-2xl font-bold text-slate-800">No parts found</h2>
+        <p class="text-slate-500 mt-1">Try searching for a different keyword or part name.</p>
     </div>
 
     <% 
@@ -67,11 +73,13 @@
     %>
 
     <% for (let category in displayCategories) { %>
-        <section class="mb-16">
+        <section class="mb-16 category-section">
             <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2"><%= category %></h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <% displayCategories[category].forEach(item => { %>
-                    <div class="relative group h-[350px] overflow-hidden rounded-2xl shadow-md bg-white border border-slate-100">
+                    <div class="product-card relative group h-[350px] overflow-hidden rounded-2xl shadow-md bg-white border border-slate-100" 
+                         data-name="<%= item.name.toLowerCase() %>">
+                        
                         <div class="absolute inset-0 flex items-center justify-center p-6">
                             <img src="/images/<%= item.img %>" alt="<%= item.name %>" class="h-full object-contain transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -79,7 +87,11 @@
                         <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
                             <h3 class="text-white text-lg font-bold mb-3 tracking-tight"><%= item.name %></h3>
                             <div class="w-12 h-0.5 bg-blue-500 mb-4"></div>
-                            <p class="text-slate-200 text-sm leading-relaxed"><%= item.desc %></p>
+                            <p class="text-slate-200 text-sm leading-relaxed mb-6"><%= item.desc %></p>
+                            
+                            <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-bold transition-colors">
+                                Inquire Now
+                            </a>
                         </div>
                     </div>
                 <% }) %>

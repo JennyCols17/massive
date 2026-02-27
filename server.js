@@ -18,7 +18,9 @@ const limiter = rateLimit({
     max: 100, 
     message: "Too many requests from this IP, please try again after 15 minutes."
 });
-app.use(limiter);
+
+// DISABLED FOR DEVELOPMENT: Commenting this out prevents you from being blocked
+// app.use(limiter); 
 
 const sanitizeInput = (req, res, next) => {
     if (req.body) {
@@ -72,20 +74,16 @@ app.get('/search', async (req, res) => {
 
         snapshot.forEach(doc => {
             const part = doc.data();
-            // Check if name or category matches
             if ((part.name && part.name.toLowerCase().includes(searchTerm)) || 
                 (part.category && part.category.toLowerCase().includes(searchTerm))) {
                 filteredParts.push({ id: doc.id, ...part });
             }
         });
 
-        // REDIRECT LOGIC: 
-        // If exactly one item is found, go straight to that product's page
         if (filteredParts.length === 1) {
             return res.redirect(`/product/${filteredParts[0].id}`);
         }
 
-        // Otherwise, show the list of all matches
         res.render('products', { title: `Results for "${req.query.q}"`, parts: filteredParts });
     } catch (err) {
         console.error("Search Error:", err);
@@ -93,7 +91,6 @@ app.get('/search', async (req, res) => {
     }
 });
 
-// --- ADDED PRODUCT DETAIL ROUTE ---
 app.get('/product/:id', async (req, res) => {
     try {
         const doc = await db.collection('parts').doc(req.params.id).get();
@@ -108,11 +105,18 @@ app.get('/product/:id', async (req, res) => {
 
 app.get('/contact', (req, res) => res.render('contact', { title: 'Contact' }));
 
-// MERGED ONLY: Added these two specific routes for your new links
 app.get('/news', (req, res) => res.render('news', { title: 'Latest News' }));
 app.get('/brands', (req, res) => res.render('brands', { title: 'Featured Brands' }));
 
-// Cart route preserved as per your original code request
+// --- NEW ROUTE FOR PRODUCTS GALLERY ---
+app.get('/seiken', (req, res) => res.render('seiken', { title: 'Seiken Gallery' }));
+app.get('/kyb', (req, res) => res.render('kyb', { title: 'KYB Gallery' }));
+app.get('/ctr', (req, res) => {res.render('ctr'); });
+app.get('/aisin', (req, res) => {res.render('aisin'); });
+app.get('/advics', (req, res) => {res.render('advics'); });
+app.get('/fic', (req, res) => {res.render('fic'); });
+
+
 app.get('/cart', (req, res) => res.render('cart', { title: 'Cart' }));
 
 app.use((req, res) => {
