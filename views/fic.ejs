@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FCC Gallery | MassiveParts Inc.</title>
+    <title>FIC Gallery | MassiveParts Inc.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -38,31 +38,7 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             
-            <div @click="open = true; activeItem = { title: 'Clutch Disc', img: '/images/Clutch Disc.png', desc: 'Superior friction technology for smooth power transmission and long-lasting durability.' }" 
-                 class="product-card cursor-pointer group">
-                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
-                    <img src="/images/Clutch Disc.png" class="max-h-full w-full object-contain transition-all duration-500">
-                </div>
-                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Clutch Disc</h3>
-            </div>
-
-            <div @click="open = true; activeItem = { title: 'Clutch Cover', img: '/images/Clutch Cover.png', desc: 'Precision-engineered covers providing consistent pressure and clutch release performance.' }" 
-                 class="product-card cursor-pointer group">
-                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
-                    <img src="/images/Clutch Cover.png" class="max-h-full w-full object-contain transition-all duration-500">
-                </div>
-                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Clutch Cover</h3>
-            </div>
-
-            <div @click="open = true; activeItem = { title: 'Brake Master Assembly', img: '/images/Brake Master Assembly.jpg', desc: 'Expertly crafted master assembly designed for reliable hydraulic pressure and braking safety.' }" 
-                 class="product-card cursor-pointer group">
-                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
-                    <img src="/images/Brake Master Assembly.jpg" class="max-h-full w-full object-contain transition-all duration-500">
-                </div>
-                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Brake Master Assembly</h3>
-            </div>
-
-            <div @click="open = true; activeItem = { title: 'Brake Master Cup Kit', img: '/images/Brake Master Cup Kit.jpg', desc: 'High-quality replacement seals to restore and maintain master cylinder hydraulic integrity.' }" 
+            <div @click="open = true; activeItem = { title: 'Brake Master Cup Kit', img: '/images/Brake Master Cup Kit.jpg', desc: 'Premium-grade hydraulic seals designed to eliminate internal leaks and restore optimal braking performance.' }" 
                  class="product-card cursor-pointer group">
                 <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
                     <img src="/images/Brake Master Cup Kit.jpg" class="max-h-full w-full object-contain transition-all duration-500">
@@ -70,12 +46,52 @@
                 <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Brake Master Cup Kit</h3>
             </div>
 
-            <div @click="open = true; activeItem = { title: 'Brake Disc Caliper Seal Kit', img: '/images/Brake Disc Caliper Seal Kit.jpg', desc: 'Heat-resistant rubber components to ensure a leak-proof seal for your disc brake calipers.' }" 
+            <div @click="open = true; activeItem = { title: 'Clutch Operating Kit', img: '/images/Clutch Operating Kit.png', desc: 'Complete rebuild solution for clutch actuation systems, ensuring responsive pedal feel.' }" 
+                 class="product-card cursor-pointer group">
+                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
+                    <img src="/images/Clutch Operating Kit.png" class="max-h-full w-full object-contain transition-all duration-500">
+                </div>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Clutch Operating Kit</h3>
+            </div>
+
+            <div @click="open = true; activeItem = { title: 'Wheel Cylinder', img: '/images/Wheel Cylinder.png', desc: 'High-grade hydraulic wheel cylinders designed for reliable braking force and leak prevention.' }" 
+                 class="product-card cursor-pointer group">
+                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
+                    <img src="/images/Wheel Cylinder.png" class="max-h-full w-full object-contain transition-all duration-500">
+                </div>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Wheel Cylinder</h3>
+            </div>
+
+            <div @click="open = true; activeItem = { title: 'Clutch Operating Assy', img: '/images/Clutch Operating Assy.png', desc: 'Precision hydraulic assembly built for long-lasting clutch engagement and performance.' }" 
+                 class="product-card cursor-pointer group">
+                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
+                    <img src="/images/Clutch Operating Assy.png" class="max-h-full w-full object-contain transition-all duration-500">
+                </div>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Clutch Operating Assy</h3>
+            </div>
+
+            <div @click="open = true; activeItem = { title: 'Brake Master Assembly', img: '/images/Brake Master Assembly.jpg', desc: 'The heart of your braking system, built to OEM specifications for maximum safety.' }" 
+                 class="product-card cursor-pointer group">
+                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
+                    <img src="/images/Brake Master Assembly.jpg" class="max-h-full w-full object-contain transition-all duration-500">
+                </div>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Brake Master Assembly</h3>
+            </div>
+
+            <div @click="open = true; activeItem = { title: 'Brake Disc Caliper Seal Kit', img: '/images/Brake Disc Caliper Seal Kit.jpg', desc: 'Heat-resistant seals and components to maintain hydraulic integrity under extreme conditions.' }" 
                  class="product-card cursor-pointer group">
                 <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
                     <img src="/images/Brake Disc Caliper Seal Kit.jpg" class="max-h-full w-full object-contain transition-all duration-500">
                 </div>
-                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Caliper Seal Kit</h3>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Brake Disc Caliper Seal Kit</h3>
+            </div>
+
+            <div @click="open = true; activeItem = { title: 'Brake Master Kit', img: '/images/Brake Master Kit.png', desc: 'Essential internal components for complete hydraulic master cylinder service and restoration.' }" 
+                 class="product-card cursor-pointer group">
+                <div class="aspect-[4/5] bg-white rounded-2xl flex items-center justify-center p-8 border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-blue-400">
+                    <img src="/images/Brake Master Kit.png" class="max-h-full w-full object-contain transition-all duration-500">
+                </div>
+                <h3 class="mt-4 text-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Brake Master Kit</h3>
             </div>
 
         </div>
